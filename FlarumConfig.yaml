@@ -1,0 +1,33 @@
+# This file is for database creation, so we want debug mode on in case
+# something goes wrong, like there being any sort of database misconfiguration.
+debug: true
+# This is the base URL of your forum. It should be the same as the URL you
+# use to access your forum in a web browser, except with no path at the end.
+baseUrl: http://127.0.0.1:6767
+databaseConfiguration:
+  # Database caveats:
+  #
+  # You must have SSL *DISABLED* for installation.
+  # You should re-enable SSL as soon as installation is complete, details
+  # on how to modify your config.php to support encrypted connections can be
+  # found in the README.
+  #
+  # Note: Your database must support Foreign Key Constraints for Flarum, or
+  # you will not be able to install. This means you can't use things like
+  # PlanetScale without some significant modifications.
+  #
+  # Set everything as you would here as you would on the Flarum install page.
+  driver: mysql
+  host: my-db.local
+  database: myflarumdb
+  port: 1234
+  username: myFlarumDBUser
+  password: myFlarumDBPassword
+  prefix: forum
+
+# This is the admin user that will be created by the installer.
+# You'll need this to log in to your forum for the first time.
+adminUser:
+  username: adminUser
+  password: adminPassword
+  email: admin@example.com

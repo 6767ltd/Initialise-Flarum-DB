@@ -1,0 +1,14 @@
+#!/command/with-contenv bash
+FLARUM_PROJECT="${FLARUM_PROJECT:-flarum/flarum}"
+FLARUM_ROOT="$(webhome)"
+FLARUM_CHECK="$FLARUM_ROOT/flarum"
+
+if [ ! -f "$FLARUM_CHECK" ]; then
+    wait-for-server &>/dev/null
+    echo; echo "🤖 Flarum install time!"
+    rm -rf $FLARUM_ROOT/public $FLARUM_ROOT/index.*
+
+    composer-create -d $FLARUM_ROOT/ $FLARUM_PROJECT $FLARUM_ROOT/
+    wmd $FLARUM_ROOT -R &&
+    php flarum install -f /var/www/BaseFlarumConfig.yaml
+fi
