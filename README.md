@@ -19,7 +19,7 @@ This dockerfile is basically a script. You run it once, then you're done.
 2. Create a MySQL/MariaDB database
 3. Ensure SSL is disabled at a DB level. Whilst it can run on it, Flarum cannot initialize a DB with SSL enabled.
 4. Modify the FlarumConfig.yaml file with your database details
-5. Run the docker build command (run `docker build`). This is all you need to do, once this is done you can discard the image.
+5. Run the docker build command (run `docker build .`). This is all you need to do, once this is done you can discard the image.
 5. Re-enable SSL at a DB level to secure your Flarum forum against MITM attacks.
 
 ## Is this a bodge
